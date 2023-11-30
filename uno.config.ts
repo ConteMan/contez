@@ -1,6 +1,8 @@
 import type { Theme } from 'unocss/preset-mini'
 import { defineConfig, presetUno } from 'unocss'
 import presetAttributify from '@unocss/preset-attributify'
+import transformerDirectives from '@unocss/transformer-directives'
+import presetIcons from '@unocss/preset-icons'
 import { presetShadcn } from './preset.shadcn'
 
 export default defineConfig({
@@ -8,6 +10,7 @@ export default defineConfig({
     presetUno(),
     presetAttributify(),
     presetShadcn(),
+    presetIcons(),
   ],
   shortcuts: [
     {
@@ -114,4 +117,7 @@ export default defineConfig({
       sm: 'calc(var(--radius) - 4px)',
     },
   } as Theme,
+  transformers: [
+    transformerDirectives(),
+  ],
 })

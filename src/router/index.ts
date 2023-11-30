@@ -1,7 +1,6 @@
 import { createRouter, createWebHistory } from 'vue-router'
 
 import MainView from '@/views/Main.vue'
-import SettingView from '@/views/Setting.vue'
 
 const router = createRouter({
   history: createWebHistory(import.meta.env.BASE_URL),
@@ -12,9 +11,8 @@ const router = createRouter({
       component: MainView,
     },
     {
-      path: '/setting',
-      name: 'setting',
-      component: SettingView,
+      path: '/:id+',
+      redirect: '/',
     },
   ],
 })

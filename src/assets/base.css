@@ -89,3 +89,7 @@ body {
 #app {
   height: 100%;
 }
+
+.no-scrollbar::-webkit-scrollbar {
+  display: none;
+}

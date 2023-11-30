@@ -1,7 +1,6 @@
 <script setup lang="ts">
 import { ref } from 'vue'
 import { AlertCircle, Terminal } from 'lucide-vue-next'
-import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle } from '@/components/ui/card'
 import { Alert, AlertDescription, AlertTitle } from '@/components/ui/alert'
 import { Input } from '@/components/ui/input'
 import { Label } from '@/components/ui/label'
@@ -37,32 +36,25 @@ async function submitSetting() {
 </script>
 
 <template>
-  <div class="h-full w-full flex flex-col items-center justify-center gap-4">
-    <Card class="w-[350px]">
-      <CardHeader>
-        <CardTitle>Setting</CardTitle>
-        <CardDescription>Base system info.</CardDescription>
-      </CardHeader>
-      <CardContent>
-        <form>
-          <div class="grid items-center w-full gap-4">
-            <div class="flex flex-col space-y-1.5">
-              <Label html-for="api-url">Api Url</Label>
-              <Input id="api-url" v-model="inputApiUrl" autocomplete="off" />
-            </div>
-            <div class="flex flex-col space-y-1.5">
-              <Label html-for="token">Token</Label>
-              <Input id="token" v-model="inputToken" autocomplete="off" />
-            </div>
-          </div>
-        </form>
-      </CardContent>
-      <CardFooter class="flex justify-end px-6 pb-6">
-        <Button @click="submitSetting">
-          Submit
-        </Button>
-      </CardFooter>
-    </Card>
+  <div class="h-full w-full flex flex-col items-start justify-center gap-4">
+    <form class="w-full">
+      <div class="grid items-center w-full gap-4">
+        <div class="flex flex-col space-y-1.5">
+          <Label html-for="api-url">Api Url</Label>
+          <Input id="api-url" v-model="inputApiUrl" autocomplete="off" />
+        </div>
+        <div class="flex flex-col space-y-1.5">
+          <Label html-for="token">Token</Label>
+          <Input id="token" v-model="inputToken" autocomplete="off" />
+        </div>
+      </div>
+    </form>
+
+    <div class="mt-4 flex items-start">
+      <Button @click="submitSetting">
+        Save
+      </Button>
+    </div>
 
     <Alert v-if="alertContent">
       <Terminal class="h-4 w-4" />
